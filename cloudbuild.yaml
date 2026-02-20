@@ -1,6 +1,5 @@
 options:
   logging: CLOUD_LOGGING_ONLY
-
 steps:
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     args:
@@ -15,5 +14,4 @@ steps:
       - '--entry-point=main'
       - '--trigger-http'
       - '--allow-unauthenticated'
-      - '--set-secrets'
-      - 'NASA_BASE_URL=projects/$PROJECT_ID/secrets/NASA_BASE_URL:latest,NASA_API_KEY=projects/$PROJECT_ID/secrets/NASA_API_KEY:latest,ASTEROIDS_BUCKET=projects/$PROJECT_ID/secrets/ASTEROIDS_BUCKET:latest'
+      - '--set-env-vars=NASA_BASE_URL=https://api.nasa.gov/neo/rest/v1/feed?,ASTEROIDS_BUCKET=astreoids-bucket'
